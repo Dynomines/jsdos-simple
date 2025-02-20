@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        html,
+        body,
+        #jsdos {
+            background: black;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            -ms-touch-action: none;
+            -ms-content-zooming: none;
+            touch-action: none;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+</head>
+
+<body>
+    <div id="jsdos"></div>
+	
+    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+    <script>
+        let extractedURL
+
+        window.onload = function () {
+            // Get the part of the URL after '#'
+            let hash = window.location.hash.substring(1);
+            
+            // Check if hash exists
+            if (!hash) {
+                console.log("No URL found in hash.");
+                let extractedURL = "doom.jsdos"
+                return;
+            }
+
+            // Store it in a variable
+            extractedURL = decodeURIComponent(hash);
+            
+            // Log it or use it as needed
+            console.log("Extracted URL:", extractedURL);
+
+            let bundleUrl = "doom.jsdos"
+            // bundleUrl = "https://cdn.dos.zone/original/2X/6/6a2bfa87c031c2a11ab212758a5d914f7c112eeb.jsdos"; // dagnerous dave 2
+            // bundleUrl = "https://cdn.dos.zone/original/2X/1/1b063b2520052ebb504184667ac95e72423331de.jsdos"; // lost vikings
+            // bundleUrl = "https://cdn.dos.zone/custom/dos/doom.jsdos"; // doom
+            // bundleUrl = "https://cdn.dos.zone/original/2X/a/ac888d1660aa253f0ed53bd6c962c894125aaa19.jsdos"; // wolf 3d
+            // bundleUrl = "https://cdn.dos.zone/custom/dos/homm_2.jsdos"; // heroes of might and magic 2
+            // bundleUrl = "https://doszone-uploads.s3.dualstack.eu-central-1.amazonaws.com/original/2X/6/60b165c86771eadf24cb2f81aef4656b85d167a6.jsdos"; // transport tycoon deluxe
+            Dos(document.getElementById("jsdos"), {
+                url: extractedURL,
+            });
+        };        
+
+        
+    </script>
+</body>
+
+</html>
